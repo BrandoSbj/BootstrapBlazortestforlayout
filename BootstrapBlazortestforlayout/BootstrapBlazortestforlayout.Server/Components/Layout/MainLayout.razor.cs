@@ -47,7 +47,8 @@ namespace BootstrapBlazortestforlayout.Server.Components.Layout
                 new() { Text = "Counter", Icon = "fa-solid fa-fw fa-check-square", Url = "/counter" },
                 new() { Text = "Weather", Icon = "fa-solid fa-fw fa-database", Url = "/weather" },
                 new() { Text = "Table", Icon = "fa-solid fa-fw fa-table", Url = "/table" },
-                new() { Text = "花名册", Icon = "fa-solid fa-fw fa-users", Url = "/users" }
+                new() { Text = "花名册", Icon = "fa-solid fa-fw fa-users", Url = "/users" },
+                new() { Text = "问题测试", Icon = "fa-solid fa-fw fa-table", Url = "/testtable" }
             };
 
             return menus;
