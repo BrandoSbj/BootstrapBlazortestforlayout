@@ -1,0 +1,28 @@
+﻿@page "/testtable"
+@attribute [TabItemOption(Text = "测试表格")]
+
+@using BootstrapBlazortestforlayout.Server.Data
+
+<div class="mb-3">
+    <Button Color="Color.Primary" OnClick="@Modal1OnShow">打开测试表格弹窗</Button>
+</div>
+
+<Modal @ref="Modal1">
+    <ModalDialog Title="123">
+        <BodyTemplate>
+                <Table TItem="Foo" AutoGenerateColumns="true" class="table-demo"
+                       IsPagination="true" PageItemsSource="PageItemsSource"
+                       IsStriped="true" IsBordered="true" IsMultipleSelect="true"
+                       ShowSkeleton="true" ShowToolbar="true" ShowSearch="true" ShowExtendButtons="true"
+                       ShowExportButton="true" ShowExportPdfButton="true"
+                   OnQueryAsync="OnQueryAsync" OnSaveAsync="OnSaveAsync" OnDeleteAsync="OnDeleteAsync" EditMode="EditMode.InCell">
+                    <TableColumns>
+                        <TableColumn @bind-Field="@context.Hobby" Items="GetHobbies(context)" />
+                    </TableColumns>
+                </Table>
+        </BodyTemplate>
+        <FooterTemplate>
+        </FooterTemplate>
+    </ModalDialog>
+</Modal>
+

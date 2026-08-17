@@ -1,0 +1,39 @@
+﻿@page "/table"
+@attribute [TabItemOption(Text = "Table")]
+
+<PageTitle>Table</PageTitle>
+
+<Button Color="Color.Primary" OnClick="ShowModal">Open Table Modal</Button>
+
+<Modal Visible="@modalVisible" VisibleChanged="@((bool v) => modalVisible = v)" Title="Table in Modal" Size="xl">
+    <ModalBody>
+        <!-- Full table inserted into modal -->
+        <Table TItem="Foo" AutoGenerateColumns="true" class="table-demo"
+               IsPagination="true" PageItemsSource="PageItemsSource"
+               IsStriped="true" IsBordered="true" IsMultipleSelect="true"
+               ShowSkeleton="true" ShowToolbar="true" ShowSearch="true" ShowExtendButtons="true"
+               ShowExportButton="true" ShowExportPdfButton="true"
+               OnQueryAsync="OnQueryAsync" OnSaveAsync="OnSaveAsync" OnDeleteAsync="OnDeleteAsync">
+            <TableColumns>
+                <TableColumn @bind-Field="@context.Hobby" Items="GetHobbies(context)" />
+            </TableColumns>
+        </Table>
+    </ModalBody>
+    <ModalFooter>
+        <Button Color="Color.Secondary" OnClick="HideModal">Close</Button>
+    </ModalFooter>
+</Modal>
+
+<!-- Original table remains on the page as well -->
+<div class="mt-3">
+<Table TItem="Foo" AutoGenerateColumns="true" class="table-demo"
+       IsPagination="true" PageItemsSource="PageItemsSource"
+       IsStriped="true" IsBordered="true"IsMultipleSelect="true"
+       ShowSkeleton="true" ShowToolbar="true" ShowSearch="true" ShowExtendButtons="true"
+       ShowExportButton="true" ShowExportPdfButton="true"
+       OnQueryAsync="OnQueryAsync" OnSaveAsync="OnSaveAsync" OnDeleteAsync="OnDeleteAsync">
+    <TableColumns>
+        <TableColumn @bind-Field="@context.Hobby" Items="GetHobbies(context)" />
+    </TableColumns>
+</Table>
+</div>
