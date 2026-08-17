@@ -8,7 +8,7 @@
 </div>
 
 <Modal @ref="Modal1">
-    <ModalDialog Title="123">
+    <ModalDialog Title="123" AdditionalAttributes="@(new Dictionary<string, object> { { "style", "z-index: 1051;" } })">
         <BodyTemplate>
                 <Table TItem="Foo" AutoGenerateColumns="true" class="table-demo"
                        IsPagination="true" PageItemsSource="PageItemsSource"
